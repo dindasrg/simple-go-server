@@ -12,7 +12,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintf(w, "POST request successful")
+	fmt.Fprintf(w, "POST request successful\n")
 	name := r.FormValue("name")
 	address := r.FormValue("address")
 	fmt.Fprintf(w, "name = %v\n", name)
@@ -20,7 +20,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "hello" {
+	if r.URL.Path != "/hello" {
 		http.Error(w, "404 not found", http.StatusNotFound)
 		return
 	}
